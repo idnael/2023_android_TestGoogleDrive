@@ -310,16 +310,25 @@ class MainActivity : ComponentActivity() {
     fun test(){
         Log.v(TAG, "test")
 
-            val filesList = drive.Files().list().apply {
-                // The space in which the IDs can be used to create new files. Supported values are drive and appDataFolder. (Default: drive)
-                spaces = "drive"
+        val user=drive.About().get().apply{fields="*"}.execute().user
+        Log.v(TAG, "EMAIL:" + user.emailAddress)
 
-                // only sub folders of current folder, and ignore trashed files
-                q = "parents is empty"
-                fields = "nextPageToken, files(id, name, parents, mimeType)"
-            }.execute()
+        // null
+        val teamDriveId =drive.Teamdrives().list().execute().teamDrives.firstOrNull()?.id
+        Log.v(TAG, "teamDrive=$teamDriveId")
 
-        Log.v(TAG, "test result: ${filesList.size}")
+        val filesList = drive.Files().list().apply {
+            // The space in which the IDs can be used to create new files. Supported values are drive and appDataFolder. (Default: drive)
+            spaces = "drive"
+
+            // only sub folders of current folder, and ignore trashed files
+            q = "'root' in parents"
+            fields = "nextPageToken, files(id, name, parents, mimeType)"
+        }.execute()
+
+        val f = filesList.files.firstOrNull()
+        Log.v(TAG, "test result: ${filesList.files.size}, id=${f?.id}, name=${f?.name}")
+
     }
 }
 
