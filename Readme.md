@@ -47,3 +47,20 @@ For more information about the Google Drive API (This is a Java API, not Android
 Note: I couldn't find where the trick of getting the Intent from
 the auth exception is documented. I learned it from other examples
 and posts I found online.
+
+# About getting the GDrive root folder
+
+I tried several queries, none worked:
+```
+  q ="'' in parents"  // "File not found: ."
+  q ="null in parents"  // bad request "Invalid Value"
+  q = "name = 'My files'" // gives 0 results... but my root folder is named like this!
+  q = "'drive' in parents"  -- error
+  q="not parents" // Unknown Error.
+  q="parents = null" // invalid value
+  etc
+```
+
+The only solution I found was to get a random file, and follow its ancestors until getting a folder with null parent. That should be the top folder. But this process involves several google api calls. And I don't know if it is guaranteed to always work.
+
+See here: https://stackoverflow.com/questions/44090344/retrieving-top-level-files-in-shared-with-me-from-google-drive-v3-java-api/77203855#77203855
