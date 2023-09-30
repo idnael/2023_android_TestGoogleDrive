@@ -23,7 +23,7 @@ and choose Create a credential / OAUTH CLIENT ID:
 - package name: your android package
 - SHA1 - you can get it from Android Studio. See https://stackoverflow.com/questions/27609442/how-to-get-the-sha-1-fingerprint-certificate-in-android-studio-for-debug-mode
 
-OAuth client created! He will give you the client ID, but we don't need to use it
+OAuth client created! He will give the client ID, but we don't need to use it
 
 Finally, go to ENABLE APIS AND SERVICES, and Enable the Google Drive API - "The Google Drive API allows clients to access resources from Google Drive."
 
