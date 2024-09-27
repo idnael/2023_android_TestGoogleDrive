@@ -2,6 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../20240125_CameraXSample" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../samples/OsmAnd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../samples/compose-samples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../samples/googlesamples_mlkit" vcs="Git" />
   </component>
 </project>
