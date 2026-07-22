@@ -262,6 +262,10 @@ class MainActivity : ComponentActivity() {
             folderNavigationStack.clear()
 
             // get a random file, don't follow it's parents until there is none. That should be the top folder "My Drive"
+
+            // 20260719 erro
+            // com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAuthIOException
+            // Caused by: com.google.android.gms.auth.GoogleAuthException: UnregisteredOnApiConsole
             val filesList = drive.Files().list().apply{
                 spaces = "drive"
                 fields = "files(id, name, parents)"
